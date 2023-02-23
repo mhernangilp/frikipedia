@@ -47,13 +47,15 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// Initialize elements when document loaded
 $(document).ready(function (){
-    inicializarElemento("https://gta-real.com/_ph/43/168793458.jpg?1628548823", "Grand Theft Auto V", "Rockstar Games", "Grand Theft Auto V es un videojuego de acción-aventura desarrollado por el estudio Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.​", "2013", "Action-Adventure");
-    inicializarElemento("https://unblockedgames7766.com/wp-content/uploads/2021/03/minecraft-unblocked.jpg", "Minecraft", "Mojang Studios", "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por Mojang Studios.", "2011", "Sandbox-Survival");
-    inicializarElemento("https://kabekin.com/uploads/converted/15/03/12/1618540411-kabekin_valorant22-jq0B-1280x720-MM-100.jpg", "Valorant", "Riot Games", "Valorant es un hero shooter en primera persona multijugador gratuito desarrollado y publicado por Riot Games. El juego se anunció por primera vez con el Developer en clave Project A en octubre de 2019.", "2020", "Tactical Shooter");
+    initializeElement("https://gta-real.com/_ph/43/168793458.jpg?1628548823", "Grand Theft Auto V", "Rockstar Games", "Grand Theft Auto V es un videojuego de acción-aventura desarrollado por el estudio Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.​", "2013", "Action-Adventure");
+    initializeElement("https://unblockedgames7766.com/wp-content/uploads/2021/03/minecraft-unblocked.jpg", "Minecraft", "Mojang Studios", "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por Mojang Studios.", "2011", "Sandbox-Survival");
+    initializeElement("https://kabekin.com/uploads/converted/15/03/12/1618540411-kabekin_valorant22-jq0B-1280x720-MM-100.jpg", "Valorant", "Riot Games", "Valorant es un hero shooter en primera persona multijugador gratuito desarrollado y publicado por Riot Games. El juego se anunció por primera vez con el Developer en clave Project A en octubre de 2019.", "2020", "Tactical Shooter");
     showElements();
 })
 
+// Create a new element (map)
 function createElement(Url, Title, Developer, Description, ReleaseDate, Genre) {
     let element = new Map();
     element.set("Url", Url);
@@ -65,10 +67,12 @@ function createElement(Url, Title, Developer, Description, ReleaseDate, Genre) {
     return element;
 }
 
-function inicializarElemento(Url, Title, Developer, Description, ReleaseDate, Genre) {
+// Set a new element to de main map mapElements
+function initializeElement(Url, Title, Developer, Description, ReleaseDate, Genre) {
     mapElements.set(i++, createElement(Url, Title, Developer, Description, ReleaseDate, Genre));
 }
 
+// Show all elements that are in the map mapElements
 function showElements() {
     if (mapElements.size === 0) {
         $("#row").append(`
@@ -98,6 +102,7 @@ function showElements() {
     <a class="btn btn-primary btn-xl text-uppercase" onclick="addNewElement()">Add new element</a>`);
 }
 
+// Shows only one element, when more info button is pressed
 function moreInfo(x) {
     var element = mapElements.get(x);
     $("#row").empty();
@@ -152,6 +157,7 @@ function moreInfo(x) {
     })
 }
 
+// The form to add a new element, when New Element button is pressed
 function addNewElement() {
     $("#row").empty();
     $(".masthead").toggle();
@@ -202,6 +208,7 @@ function addNewElement() {
     );
 }
 
+// Save the new element entered in the New Element form
 function saveNewElement() {
     let Url = $("#Url").val();
     let Title = $("#Title").val();
@@ -213,8 +220,8 @@ function saveNewElement() {
     back();
 }
 
+// Form to modify an existing element
 function modifyElement(x) {
-
     var element = mapElements.get(x);
     $("#aux").empty();
     $("#aux").append(`
@@ -255,6 +262,7 @@ function modifyElement(x) {
     </div>`);
 }
 
+// Function to delete a subelement from a element
 function deleteSubelement(x, key) {
     var temporalElement = mapElements.get(x);
     let response = window.confirm("¿Are you sure you want to delete this subelement permanently?");
@@ -265,6 +273,7 @@ function deleteSubelement(x, key) {
     }
 }
 
+// Function to add a subelement in an element
 function addSubelementMap(x){
     var element = mapElements.get(x);
     let key = $("#key").val();
@@ -273,6 +282,7 @@ function addSubelementMap(x){
     back();
 }
 
+// Form to add a new sub element, when add subelement button is pressed
 function addSubelement(x){
     $("#aux").empty();
     $("#aux").append(` 
@@ -297,6 +307,7 @@ function addSubelement(x){
     );
 }
 
+// Function to modify an existing element
 function modifyElementMap(x) {
     var modifiedElement = new Map();
     var oForm = document.forms["form_sub"];
@@ -310,6 +321,7 @@ function modifyElementMap(x) {
     back();
 }
 
+// Function to delete an exisiting element
 function deleteElement(key) {
     let response = window.confirm("¿Are you sure you want to delete this element permanently?");
     if (response === true){
@@ -318,6 +330,7 @@ function deleteElement(key) {
     }
 }
 
+// Function used to go back to the main page
 function back() {
     $("#aux").empty();
     $(".masthead").toggle();
@@ -329,5 +342,6 @@ function back() {
     $("html,body").scrollTop(0);
 }
 
+// Creation of the main map where all the elements are stored and an int variable to name new elements key-maps
 var mapElements = new Map();
 var i = 0;

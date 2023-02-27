@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// ANIMATIONS ////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -47,11 +51,22 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// DINAMIC ////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 // Initialize elements when document loaded
 $(document).ready(function (){
-    initializeElement("https://gta-real.com/_ph/43/168793458.jpg?1628548823", "Grand Theft Auto V", "Rockstar Games", "Grand Theft Auto V es un videojuego de acción-aventura desarrollado por el estudio Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.​", "2013", "Action-Adventure");
-    initializeElement("https://unblockedgames7766.com/wp-content/uploads/2021/03/minecraft-unblocked.jpg", "Minecraft", "Mojang Studios", "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por Mojang Studios.", "2011", "Sandbox-Survival");
-    initializeElement("https://kabekin.com/uploads/converted/15/03/12/1618540411-kabekin_valorant22-jq0B-1280x720-MM-100.jpg", "Valorant", "Riot Games", "Valorant es un hero shooter en primera persona multijugador gratuito desarrollado y publicado por Riot Games. El juego se anunció por primera vez con el Developer en clave Project A en octubre de 2019.", "2020", "Tactical Shooter");
+    initializeElement("https://assets.reedpopcdn.com/eurogamer-1ygxrw.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/eurogamer-1ygxrw.jpg", "Grand Theft Auto V", "Rockstar Games", "Grand Theft Auto V es un videojuego de acción-aventura desarrollado por el estudio Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.​", "2013", "Action-Adventure");
+    initializeElement("https://i.pinimg.com/originals/1b/9f/77/1b9f772d10ae2cfce18fab1b05705810.png", "Minecraft", "Mojang Studios", "Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por Mojang Studios.", "2011", "Sandbox-Survival");
+    initializeElement("https://media.vandal.net/m/78531/valorant-202052910331074_1.jpg", "Valorant", "Riot Games", "Valorant es un hero shooter en primera persona multijugador gratuito desarrollado y publicado por Riot Games. El juego se anunció por primera vez con el Developer en clave Project A en octubre de 2019.", "2020", "Tactical Shooter");
+    initializeElement("https://specials-images.forbesimg.com/imageserve/5cfbf6b24c687b000859138a/960x0.jpg?fit=scale", "Elden Ring", "FromSoftware", "Elden Ring es un videojuego de rol de acción en tercera persona, con una jugabilidad centrada en el combate y la exploración. Presenta características similares de otros juegos desarrollados por FromSoftware, tales como la saga Dark Souls, Bloodborne y Sekiro: Shadows Die Twice. Localizado en un mundo abierto, el jugador puede explorar libremente las Tierras Intermedias y sus seis áreas principales.", "2022", "Action role-playing");
+    initializeElement("https://meups.com.br/wp-content/uploads/2020/04/GOd-of-War-p%C3%B4ster.jpg", "God of War: Ragnarök", "SIE Santa Monica Studio", "Basado libremente en la mitología nórdica, el juego se desarrolla en la antigua Escandinavia y presenta al protagonista de la serie Kratos y su hijo adolescente Atreus. Concluyendo la era nórdica de la serie, el juego cubre el Ragnarök, el evento escatológico que es central en la mitología nórdica y se predijo que sucedería en el juego anterior después de que Kratos matara al dios Æsir Baldur.", "2022", "Action-Adventure");
+    initializeElement("https://www.newgamesbox.net/wp-content/uploads/2017/04/Hearts-Of-Iron-IV-Download-600x856.jpg", "Hearts of Iron IV", "Paradox Development Studio", "Hearts of Iron IV, tal como los demás juegos de la serie Hearts of Iron, es un juego de estrategia en tiempo real que se desarrolla en torno a la Segunda Guerra Mundial. El jugador puede controlar cualquier nación del mundo en este periodo de la historia, iniciando el escenario en 1936 o 1939 en un solo jugador (contra jugadores controlados por una IA) o multijugador (contra jugadores reales en línea).", "2016", "Grand-Strategy");
     showElements();
 })
 
@@ -76,8 +91,10 @@ function initializeElement(Url, Title, Developer, Description, ReleaseDate, Genr
 function showElements() {
     if (mapElements.size === 0) {
         $("#row").append(`
-        <h4 class="col-lg-4 col-sm-6 mb-4" style="margin: auto;text-align: center;">
+        <h4 class="col-lg-4 col-sm-6 mb-4" style="margin: auto;text-align: center;color:red;">
+        <br><br>
             Whitout elements
+            <br><br>
         </h4>`);
     }
     else for (let x of mapElements.keys()) {
@@ -99,7 +116,10 @@ function showElements() {
         </div>`);
     }
     $("#row").append(`
-    <a class="btn btn-primary btn-xl text-uppercase" onclick="addNewElement()">Add new element</a>`);
+ 
+    <div class="new">   <br>
+        <a class="con btn btn-success btn-xl text-uppercase" onclick="addNewElement()">Add new element</a>
+    </div>`);
 }
 
 // Shows only one element, when more info button is pressed
@@ -113,29 +133,32 @@ function moreInfo(x) {
     $("#contact").toggle();
     $("#aux").append(`
     <div id="portfolioModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <!-- Project details-->
-                                <h2 class="text-uppercase" style="margin: auto; text-align: center">${element.get("Title")}</h2>
-                                <p class="item-intro text-muted" style="margin: auto; margin-top: 20px; text-align: center">${element.get("Developer")}</p>
-                                <img class="img-fluid d-block mx-auto" style="margin-top: 20px" src="${element.get("Url")}" alt="..." />
-                                <p style="margin: auto; margin-top: 20px; text-align: center">${element.get("Description")}</p>
-                                <ul class="list-inline" id="sub_elements" style="margin-top: 20px">
-                                </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button" onclick="back()">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="container bg-light">
+                        <div class="justify-content-center" >
+                            <div class="col-lg-12" styles="margin-bottom: 20px;">
+                                <div class="showelement" styles="text-align: center;">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase" style="margin: auto; margin-top: 20px; text-align: center">${element.get("Title")}</h2>
+                                    <p class="item-intro text-muted" style="margin: auto;  text-align: center">${element.get("Developer")}</p>
+                                    <div style="text-align: center">
+                                    <img class="img-fluid" style="margin-top: 0px;" src="${element.get("Url")}" alt="..." />
+                                    
+                                    <p style="margin: auto; margin-top: 30px; text-align: center">${element.get("Description")}</p>
+                                    <ul class="list-inline" id="sub_elements" style="margin-top: 20px">
+                                   </ul></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-secondary try col-lg-3" data-bs-dismiss="modal" type="button" onclick="back()">
                                     <i class="fas fa-xmark me-1"></i>
                                     Back
                                 </button>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button" onclick="modifyElement(${x})">
-                                    <i class="fas fa-xmark me-1"></i>
+                                <button class="btn-success btn try col-lg-4" data-bs-dismiss="modal" type="button" onclick="modifyElement(${x})">
                                     Modify Element
                                 </button>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button" onclick="deleteElement(${x})">
-                                    <i class="fas fa-xmark me-1"></i>
+                                <button class="btn btn-danger try col-lg-4" style="margin-bottom: 20px;" data-bs-dismiss="modal" type="button" onclick="deleteElement(${x})">
                                     Delete Element
                                 </button>
                             </div>
@@ -143,8 +166,7 @@ function moreInfo(x) {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>`);
+        </div>`);
     let notFirst4 = 0;
     element.forEach (function(value, key) {
         if (notFirst4++ > 3) {
@@ -166,56 +188,72 @@ function addNewElement() {
     $("#team").toggle();
     $("#contact").toggle();
     $("#aux").append(` 
-        <div class="col-md-12 formulario" id="formulario">
-            <h2 style="text-align: center;width: 400px; font: normal 40px Montserrat, sans-serif;color:wheat">Add a new game</h2>
-            <form role="form">           
-                <br>
-                <div class="form-group">
-                    <label for="Url" style="color:white;width:400px;">Image url:</label>
-                    <input style="width:400px" type="text" id="Url" placeholder="Enter image url" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="Title" style="color:white;width:400px;">Title:</label>
-                    <input style="width:400px" type=" text" id="Title" placeholder="Enter the title" maxlength="60" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="Developer" style="color:white;width:400px;">Developer:</label>
-                    <input style="width:400px" type=" text" id="Developer" placeholder="Enter developer name" maxlength="45" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label type="Description" style="color:white; width: 400px;" ;>Description:</label>
-                    <input style="width:400px" type="text" class="form-control" id="Description" placeholder="Enter game description" maxlength="300" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="ReleaseDate" style="color:white;">Release date:</label>
-                    <input style="width:400px" type=" text" id="ReleaseDate" placeholder="Enter game release date" maxlength="10">
-                </div>
-                <div class="form-group">
-                    <label for="Genre" style="color:white;">Genre:</label>
-                    <input style="width:400px" type=" text" id="Genre" placeholder="Enter game genre" maxlength="50">
-                </div>
-                <div style="text-align:center; width: 400px;">
-                    <button style="margin-right:15px; width: 100px;" type="sumbit"
-                        class="btn btn-success" onclick="saveNewElement()">Save</button> 
-                    <button style="margin-left: 15px; width: 100px" class="btn btn-danger" onclick="back()">Cancel</button>
-                </div>  
-            </form>
-        </div>`
+       
+
+<div class="formulario container modal-content" style="text-align: center;background-color: rgb(210, 210, 210);" id="formulario"> <br>
+    <h2  style="text-align: center; font: normal 40px Montserrat, sans-serif;color:black">Add a new game</h2>
+    <form role="form">           
+        <div class="form-group">
+            <input style="width:300px" type="text" id="Url" placeholder="Enter image url" required />
+        </div>
+        <br>
+        <div class="form-group">
+            <input style="width:300px" type=" text" id="Title" placeholder="Enter the title" maxlength="60" required />
+        </div>
+        <br>
+        <div class="form-group">
+            <input style="width:300px" type=" text" id="Developer" placeholder="Enter developer name" maxlength="45" required />
+        </div>
+        <br>
+        <div class="form-group">
+            <input style="width:300px" type="text" id="Description" placeholder="Enter game description" maxlength="300" required />
+        </div>
+        <br>
+        <div class="form-group">
+            <input style="width:300px" type=" text" id="ReleaseDate" placeholder="Enter game release date" maxlength="10">
+        </div>
+        <br>
+        <div class="form-group">
+            <input style="width:300px" type=" text" id="Genre" placeholder="Enter game genre" maxlength="50">
+        </div>
+        <br><br>
+        <div style="text-align:center; ">
+            <button style="margin-right:15px; width: 100px;" type="sumbit" class="btn btn-success" onclick="saveNewElement()">Save</button> 
+            <button style="margin-left: 15px; width: 100px" class="btn btn-danger" onclick="back()">Cancel</button>
+        </div>  
+        <br><br>
+    </form>
+</div>
+<br><br>`
     );
 }
 
 // Save the new element entered in the New Element form
 function saveNewElement() {
     let Url = $("#Url").val();
+    if (Url === "") {
+        Url = "https://vectorified.com/images/no-data-icon-24.png";
+    }
     let Title = $("#Title").val();
+    if (Title === ""){
+        Title = "No data";
+    }
     let Developer = $("#Developer").val();
+    if (Developer === ""){
+        Developer = "No data";
+    }
     let Description = $("#Description").val();
+    if (Description === ""){
+        Description = "No data";
+    }
     let ReleaseDate = $("#ReleaseDate").val();
+    if (ReleaseDate === ""){
+        ReleaseDate = "No data";
+    }
     let Genre = $("#DescriGenrepcion").val();
+    if (Genre === ""){
+        Genre = "No data";
+    }
     mapElements.set(i++, createElement(Url, Title, Developer, Description, ReleaseDate, Genre));
     back();
 }
@@ -249,15 +287,18 @@ function modifyElement(x) {
             <div class="form-group>
                 <label for="${key}" style="color:black;width:400px;">${key}:</label>
                 <textarea style="width:400px" type="text" id="${key}">${value}</textarea>
-                <button class="btn btn-warning button" onclick="deleteSubelement(${x}, '${key}')">Delete subelement</button>
-            </div>
+                <div class="col-md-12" style="text-align:center"   >
+                <button class="btn btn-danger button" onclick="deleteSubelement(${x}, '${key}')">Delete subelement</button>
+                </div>
+                </div>
             <br>`);
         }
     })
-    $("#form_sub").append(`
-    <div style="text-align:center; width: 450px;">
-        <button style="margin-right:15px; width: 100px;" type="sumbit" class="btn btn-success" onclick="modifyElementMap(${x})">Save</button>
-        <button style="margin-left: 15px; width: 150px" class="btn btn-success" onclick="addSubelement(${x})">Add subelement</button>
+    $("#formulario").append(`
+    <div class="col-md-12" style="text-align:center;">
+        <br>
+        <button style="margin-right:13px;margin-left:27px; width: 100px;" type="sumbit" class="btn btn-success" onclick="modifyElementMap(${x})">Save</button>
+        <button style="margin-left: 5px; width: 150px" class="btn btn-success" onclick="addSubelement(${x})">Add subelement</button>
         <button style="margin-left: 15px; width: 100px" class="btn btn-danger" onclick="back()">Cancel</button>
     </div>`);
 }
@@ -286,25 +327,28 @@ function addSubelementMap(x){
 function addSubelement(x){
     $("#aux").empty();
     $("#aux").append(` 
-        <div class="col-md-12 formulario" id="formulario">
-            <h2 style="text-align: center;width: 400px; font: normal 40px Montserrat, sans-serif;color:wheat">Añadir subelemento
+
+       <div class="subelement modal-content">
+        <div class="col-md-12 formulario" id="formulario" styles="text-align= center">
+            <h2 style="text-align: center;width: auto; font: normal 40px Montserrat, sans-serif;color:wheat">Add Sub-Element
             </h2>
-            <form role="form">
-                            
-                <br>
-                <div class="form-group">
-                    <input id="key"for="key" style="width:400px;" placeholder="Nombre nuevo subelemento">
-                    <input style="width:400px" type="text" id="value" placeholder="Introduce el valor del nuevo subelemento">
+        </div>
+        <form role="form">
+            <br>
+                <div class="form-group" style="text-align:center; width: auto;">
+                    <input id="key"for="key" style="width:350px" placeholder="New subelement nameo">
+                    <input style="width:350px; margin-left: 20px;" type="text" id="value" placeholder="Enter the value of the new sub-element">
                 </div>
                 <br>
-                <div style="text-align:center; width: 400px;">
-                    <button style="margin-right:15px; width: 100px;" type="sumbit"
-                        class="btn btn-success" onclick="addSubelementMap(${x})">Guardar</button> 
-                    <button style="margin-left: 15px; width: 100px" class="btn btn-danger" onclick="atras()">Cancelar</button>
+                <div style="text-align:center; width: auto;">
+                    <button style="margin-right:15px; width: 100px" type="sumbit"
+                        class="btn btn-success" onclick="addSubelementMap(${x})">Save</button> 
+                    <button style="margin-left: 15px; width: 100px" class="btn btn-danger" onclick="back()">Cancel</button>
                 </div>  
             </form>
-        </div>`
-    );
+        </div> </div>`
+   
+        );
 }
 
 // Function to modify an existing element

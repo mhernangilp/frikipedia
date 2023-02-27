@@ -203,6 +203,7 @@ dd {
 
 blockquote {
   margin: 0 0 1rem;
+
 }
 
 b,
@@ -601,7 +602,7 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 500px;
 }
 
 .img-thumbnail {
@@ -11297,9 +11298,12 @@ body {
   overflow-x: hidden;
 }
 
+
+
 p {
   line-height: 1.75;
 }
+
 
 .page-section {
   padding: 6rem 0;

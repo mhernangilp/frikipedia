@@ -11,4 +11,11 @@ La practica trata sobre una página web trabajando siempre en el ámbito de clie
 Algunas particularidades de nuestra página son la implementación de imagenes en la web, que funcionan con Url, uso de una librería boostrap y jquery.
 El enfoque de la págica "Frikipedia" consiste en una página de compartir opiniones sobre videojuegos principalmente. 
 
-![Alt text](/img/screenshot1.png "Optional title")
+
+### Screenshots:
+
+![Alt text](/img/screenshot1.png)
+![Alt text](/img/screenshot2.png)
+![Alt text](/img/screenshot3.png)
+![Alt text](/img/screenshot4.png)
+![Alt text](/img/screenshot5.png)

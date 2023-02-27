@@ -10,3 +10,5 @@ The focus of the "Frikipedia" page is to share opinions about video games mainly
 La practica trata sobre una página web trabajando siempre en el ámbito de cliente, donde contaremos con varios elementos que tendrán diferentes usos como borrar o modificar. Los elemntos en este caso son jeugos, donde se puede opinar entre otras cosas sobre los juegos. 
 Algunas particularidades de nuestra página son la implementación de imagenes en la web, que funcionan con Url, uso de una librería boostrap y jquery.
 El enfoque de la págica "Frikipedia" consiste en una página de compartir opiniones sobre videojuegos principalmente. 
+
+![Alt text](/img/screenshot1.png "Optional title")

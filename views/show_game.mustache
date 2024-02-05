@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <!-- We use this tag to adapt the page to all devices and initialize the scaling  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+        <!-- Local file synchronization -->
+        <script src="/app.js"></script>
+        <link href="/styles.css" rel="stylesheet" />
+        <link href="/boostrap_styles.css" rel="stylesheet" />
+    </head>
+    
+        <!-- Navegation  -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: linear-gradient(to bottom, #000000 80%, white); background-repeat: no-repeat; background-size: cover;";>
+            <div class="container">
+                <a class="navbar-brand" href="/"><img style="height: 45px;" src="/img/logo_FrikiPedia.png" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#portfolio">Games</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <section class="page-section" style="background-color: rgb(255, 241, 216);" id="aux">
+            <div id="portfolioModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="container bg-light">
+                            <div class="justify-content-center" >
+                                <div class="col-lg-12" styles="margin-bottom: 20px;">
+                                    <div class="showelement" styles="text-align: center;">
+                                        <!-- Project details-->
+                                        <h2 class="text-uppercase" style="margin: auto; margin-top: 20px; text-align: center">{{game.Title}}</h2>
+                                        <p class="item-intro text-muted" style="margin: auto;  text-align: center">{{game.Developer}}</p>
+                                        <div style="text-align: center">
+                                        <img class="img-fluid" style="margin-top: 0px;" src="{{game.Url}}" alt="..." />
+                                        
+                                        <p style="margin: auto; margin-top: 30px; text-align: center">{{game.Description}}</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                           <div class="row">
+                                <form action="{{game.id}}/sub_elemento" method="post">
+                                    <ul class="list-inline" id="sub_elements" style="margin-top: 20px; text-align: center;">
+                                    {{#game.sub_elements}}
+                                    <li>
+                                        <strong>{{name}}:</strong>
+                                        {{value}}
+                                    </li>
+                                    {{/game.sub_elements}}
+                                    </ul>
+                                    <br>
+                                    <div class="row"> 
+                                            <a class="btn btn-success col-lg-5" data-bs-dismiss="modal" onclick="AddSubElement()">
+                                            Add sub element
+                                            </a>
+                                            <a class="btn btn-success col-lg-5" data-bs-dismiss="modal" href="/game/{{game.id}}/modify">
+                                            Modify Element
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div class="row"> 
+                                        <a href="/" class="btn btn-secondary col-lg-3" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Back
+                                        </a>
+                                        
+                                        <a href="/game/{{game.id}}/delete" class="btn btn-danger col-lg-7" onclick="return confirm('This note will be removed. Are you sure you wish to continue?')" data-bs-dismiss="modal">
+                                            Delete Element
+                                        </a>
+                                        
+                                    </div>
+                                    <br>
+                                    <div>
+                                    <button type="submit" class="btn btn-primary col-lg-12 SaveSubEle">Save sub elements</button>
+                                    </div>
+                                    <br>
+                                </form>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+        <!-- Footer-->
+        <footer class="footer py-4" style="background-color: rgb(255, 241, 216);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Frikipedia 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script>
+            let value = 0;
+            let saveButtonVisible = false;
+            $('.SaveSubEle').toggle();
+
+            function AddSubElement(){
+                if (!saveButtonVisible){
+                    $('.SaveSubEle').toggle();
+                    saveButtonVisible = true;
+                }
+                $('#sub_elements').append(`
+					<div id="${value}">
+                        <br>
+                        <input style="height:35px; width:125px;" type="text" name="sub_name">
+                        <input style="height:35px; width:175px;" type="text" name="sub_ele">
+                        <button class= "btn btn-info" type="button" onclick="deleteSubElementBox(${value})">Delete</button>
+					    <br><br>
+                    </div>
+					`);
+				value += 1;
+            }
+
+            function deleteSubElementBox(value) {
+				$('#' + value).remove();
+			}
+        </script>
+</body>
+</html>

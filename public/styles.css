@@ -1,0 +1,48 @@
+.con{
+margin-left: 40%;
+}
+
+.try{
+  height: 50px;
+  margin-left: 10px;
+  
+}
+
+.showelement{
+  width:  auto;
+
+
+}
+.subelement{
+  margin-top: 11%;
+  margin-bottom: 6.5%;
+  padding-top: 100px;
+padding-bottom: 100px;
+}
+
+.our{
+text-align: center;
+width: 500px;
+
+
+
+}
+
+/* Delete */ 
+.conter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 450px;
+}
+
+.item-intro {
+  text-align: center;
+}
+
+.btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

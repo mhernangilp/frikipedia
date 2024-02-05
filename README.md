@@ -1,14 +1,12 @@
-# Practica 1 Fundamentos Web
+# Practica 2 Fundamentos Web
 ## Victor Arroyo Madera & Marcos Hernangil Prats
 
 #### EN
-The proyect is about a website working always in the client's area, where we will have several elements that will have different uses such as deleting or modifying. The elements in this case are games, where you can give your opinion among other things about the games.
-Some particularities of our website are the implementation of images on the web, which work with URLs, the use of a Bootstrap and jQuery library.
-The focus of the "Frikipedia" page is to share opinions about video games mainly.
+The proyect is about a website working with Node.js, where we will have various elements that will have different purposes such as deleting or modifying. The elements in this case are games, where you can express opinions, among other things, about the games.
+The focus of the 'Frikipedia' page is to provide a platform for sharing opinions about video games primarily.
 
 #### ES
-El proyecto trata sobre una página web trabajando siempre en el ámbito de cliente, donde contaremos con varios elementos que tendrán diferentes usos como borrar o modificar. Los elemntos en este caso son juegos, donde se puede opinar entre otras cosas sobre los juegos. 
-Algunas particularidades de nuestra página son la implementación de imagenes en la web, que funcionan con Url, uso de una librería boostrap y jquery.
+El proyecto trata sobre una página web trabajando con node.js, donde contaremos con varios elementos que tendrán diferentes usos como borrar o modificar. Los elemntos en este caso son juegos, donde se puede opinar entre otras cosas sobre los juegos. 
 El enfoque de la págica "Frikipedia" consiste en una página de compartir opiniones sobre videojuegos principalmente. 
 
 
